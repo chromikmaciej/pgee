@@ -64,7 +64,7 @@ EOF
 ##Step 4: Install PGEE from the repository
 
 ```
-yum install -y postgresql17-ee-server
+dnf install -y postgresql17-ee-server
 ```
 
 ## Step 5 Create sample keys
@@ -90,6 +90,21 @@ initdb -D /var/lib/pgsql/$version/data -k -K "echo $KEY"
 ```
 >[!IMPORTANT]
 >Set the **$version** variable to the desired value.
+
+## Step 7 Starting your PGEE instance
+
+Now we’ll start the server. There are two methods:
+
+### Starting PGEE manually
+
+```
+pg_ctl -D /var/lib/pgsql/$version/data start
+```
+>[!IMPORTANT]
+>Set the **$version** variable to the desired value.
+>Run this command as the **postgres** user
+
+### Starting PGEE using systemd
 
 
 ###########################################################################################################################
