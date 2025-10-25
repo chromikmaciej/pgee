@@ -106,6 +106,25 @@ pg_ctl -D /var/lib/pgsql/$version/data start
 
 ### Starting PGEE using systemd
 
+```
+sudo systemctl enable postgresql-17
+```
+```
+sudo systemctl start postgresql-17
+```
+
+## Step 8 Verifying encryption
+
+```
+$ ***psql***
+
+postgres=# **SHOW data_encryption;**
+data_encryption
+-----------------
+on
+(1 row)
+```
+
 
 ###########################################################################################################################
 ###########################################################################################################################
