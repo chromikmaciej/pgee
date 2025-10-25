@@ -35,6 +35,8 @@ EOF
 ```
 
 ### Full PGEE Version Repository
+
+```
 version=17 # available: 13 14 15 16 17
 username="YOUR_LOGIN"
 password="YOUR_PASSWORD"
@@ -56,6 +58,7 @@ username=$username
 password=$password
 enabled=1
 EOF
+```
 
 
 ##Step 4: Install PGEE from the repository
