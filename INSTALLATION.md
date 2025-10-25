@@ -7,6 +7,64 @@ The RPM repositories are located here:
 
 >https://repository.cybertec.at
 
+## Step 2: Disable the standard built-in modules
+
+```
+dnf module disable -y postgresql
+```
+## Step 3: Setting up the repository
+
+### Public PGEE Demo Version Repository
+
+```
+version=17 # available: 13 14 15 16 17
+
+# RedHat, CentOS, Rocky Linux, Almalinux
+sudo tee /etc/yum.repos.d/cybertec-pg$version.repo <<EOF
+[cybertec_pg$version]
+name=CYBERTEC PostgreSQL $version repository for RHEL/CentOS \$releasever - \$basearch
+baseurl=https://repository.cybertec.at/public/$version/redhat/\$releasever/\$basearch
+gpgkey=https://repository.cybertec.at/assets/cybertec-rpm.asc
+enabled=1
+[cybertec_common]
+name=CYBERTEC common repository for RHEL/CentOS \$releasever - \$basearch
+baseurl=https://repository.cybertec.at/public/common/redhat/\$releasever/\$basearch
+gpgkey=https://repository.cybertec.at/assets/cybertec-rpm.asc
+enabled=1
+EOF
+```
+
+### Full PGEE Version Repository
+version=17 # available: 13 14 15 16 17
+username="YOUR_LOGIN"
+password="YOUR_PASSWORD"
+
+# RedHat, CentOS, Rocky Linux, Almalinux
+sudo tee /etc/yum.repos.d/cybertec-pg$version.repo <<EOF
+[cybertec_pg$version]
+name=CYBERTEC PostgreSQL $version repository for RHEL/CentOS \$releasever - \$basearch
+baseurl=https://repository.cybertec.at/pgee/$version/redhat/\$releasever/\$basearch
+gpgkey=https://repository.cybertec.at/assets/cybertec-rpm.asc
+username=$username
+password=$password
+enabled=1
+[cybertec_common]
+name=CYBERTEC common repository RHEL/CentOS \$releasever - \$basearch
+baseurl=https://repository.cybertec.at/pgee/common/redhat/\$releasever/\$basearch
+gpgkey=https://repository.cybertec.at/assets/cybertec-rpm.asc
+username=$username
+password=$password
+enabled=1
+EOF
+
+
+##Step 4: Install PGEE from the repository
+
+```
+yum install -y postgresql16-ee-server
+```
+
+
 ### A third-level
 
 
