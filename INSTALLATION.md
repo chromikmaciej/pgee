@@ -71,17 +71,31 @@ yum install -y postgresql17-ee-server
 
 ```
 su postgres
-version=16
+version=17
 PATH=/usr/pgsql-$version/bin:$PATH
 KEY=$(dd if=/dev/random bs=1k count=1 | md5sum - | cut -d ' ' -f 1)
 ```
   
 > [!CAUTION]
-> Save securly vaule **$KEY** variable
+> Save the value of **$KEY** securely.
 
 
+## Step 6 Create the database instance
+
+For encrypted installs, you need to specify to PGEE how to get the key; normal installs don’t require this.
+Use the **-K** option to provide a script to the server that supplies the key.
+
+```
+initdb -D /var/lib/pgsql/$version/data -k -K "echo $KEY"
+```
+[!IMPORTANT]
+>Set the **$version** variable to the desired value.
 
 
+###########################################################################################################################
+###########################################################################################################################
+###########################################################################################################################
+###########################################################################################################################
 ### A third-level
 
 
