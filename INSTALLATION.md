@@ -88,7 +88,7 @@ Use the **-K** option to provide a script to the server that supplies the key.
 ```
 initdb -D /var/lib/pgsql/$version/data -k -K "echo $KEY"
 ```
-[!IMPORTANT]
+>[!IMPORTANT]
 >Set the **$version** variable to the desired value.
 
 
