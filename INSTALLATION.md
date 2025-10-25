@@ -64,8 +64,22 @@ EOF
 ##Step 4: Install PGEE from the repository
 
 ```
-yum install -y postgresql16-ee-server
+yum install -y postgresql17-ee-server
 ```
+
+## Step 5 Create sample keys
+
+```
+su postgres
+version=16
+PATH=/usr/pgsql-$version/bin:$PATH
+KEY=$(dd if=/dev/random bs=1k count=1 | md5sum - | cut -d ' ' -f 1)
+```
+  
+> [!CAUTION]
+> Save securly vaule **$KEY** variable
+
+
 
 
 ### A third-level
