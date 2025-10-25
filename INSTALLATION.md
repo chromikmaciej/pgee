@@ -1,10 +1,11 @@
 # Installation guide Red Hat family
 
 
+## Step 1: Reach the RPM repository
 
-tekst
+The RPM repositories are located here:
 
-## A second-level
+>https://repository.cybertec.at
 
 ### A third-level
 
