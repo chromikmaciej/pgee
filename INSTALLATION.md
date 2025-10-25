@@ -9,7 +9,7 @@ tekst
 
 ** Bold text **
 
-* Italik *
+*Italic*
 
 ~~This was mistaken text~~
 
