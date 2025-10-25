@@ -44,3 +44,10 @@ Text that is not a quote
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+```
+$ dnf upudat e-y
+Polecenie 'dnf' nie zostało znalezione, ale można je zainstalować za pomocą:
+apt install dnf
+Proszę zapytać swojego administratora.
+```
