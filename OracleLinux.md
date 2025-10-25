@@ -1,4 +1,4 @@
-# Set static address
+# Set a static address
 
 ```
 # nmcli connection modify ens33 ipv4.method manual \
