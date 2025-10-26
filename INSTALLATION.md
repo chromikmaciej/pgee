@@ -73,10 +73,16 @@ dnf install -y postgresql17-ee-server
 
 ## Step 5 Create sample keys
 
+Switch to user ***postgres***
+
+
 ```
-su postgres
 version=17
+```
+```
 PATH=/usr/pgsql-$version/bin:$PATH
+```
+```
 KEY=$(dd if=/dev/random bs=1k count=1 | md5sum - | cut -d ' ' -f 1)
 ```
   
