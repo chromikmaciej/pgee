@@ -21,3 +21,15 @@ vault status
 ```
 vault auth enable approle
 ```
+
+### Step 2. Create a role with policy attached
+
+```
+vault policy write jenkins -<<EOF
+# Read-only permission on secrets stored at 'secret/data/mysql/webapp'
+path "secret/data/mysql/webapp" {
+  capabilities = [ "read" ]
+}
+EOF
+
+```
