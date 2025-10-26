@@ -12,6 +12,10 @@ The RPM repositories are located here:
 ```
 dnf module disable -y postgresql
 ```
+
+>[!IMPORTANT]
+>Run this command as the **root** user
+
 ## Step 3: Setting up the repository
 
 ### Public PGEE Demo Version Repository
@@ -124,3 +128,7 @@ data_encryption
 on
 (1 row)
 ```
+
+## Step 9 Upgrading from demo packages to the full PGEE version
+
+Replace the demo repo with the full-version repo described earlier, provide your username/password, and run **dpkg upgrade**. The upgrade installs the full PGEE packages (demo versions are numbered slightly lower to permit the upgrade). Existing clusters keep their data and will run PGEE going forward.
