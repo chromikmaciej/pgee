@@ -16,15 +16,15 @@
 vault status
 ```
 >Key             Value
->---             -----
->Seal Type       shamir
->Initialized     true
->Sealed          false
->Total Shares    5
->Threshold       3
->Version         1.20.3
->Build Date      2025-08-27T10:53:27Z
->Storage Type    file
->Cluster Name    vault.mc78.local
->Cluster ID      f55105a2-8db4-86af-5015-a096fb51aeb4
->HA Enabled      false
+---             -----
+Seal Type       shamir
+Initialized     true
+Sealed          false
+Total Shares    5
+Threshold       3
+Version         1.20.3
+Build Date      2025-08-27T10:53:27Z
+Storage Type    file
+Cluster Name    vault.mc78.local
+Cluster ID      f55105a2-8db4-86af-5015-a096fb51aeb4
+HA Enabled      false
