@@ -24,6 +24,8 @@ vault auth enable approle
 
 ### Step 2. Create a role with policy attached
 
+Before creating a role, create a ***jenkins*** policy.
+
 ```
 vault policy write jenkins -<<EOF
 # Read-only permission on secrets stored at 'secret/data/mysql/webapp'
@@ -31,5 +33,15 @@ path "secret/data/mysql/webapp" {
   capabilities = [ "read" ]
 }
 EOF
+
+```
+
+Create a role named ***jenkins*** with the ***jenkins*** policy attached. 
+Set the generated token's time-to-live (TTL) to 1 hour and renewable
+for up to 4 hours ater its first creation. 
+
+```
+vault write auth/approle/role/jenkins token_policies="jenkins" \
+    token_ttl=1h token_max_ttl=4h
 
 ```
