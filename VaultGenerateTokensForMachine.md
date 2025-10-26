@@ -45,3 +45,13 @@ vault write auth/approle/role/jenkins token_policies="jenkins" \
     token_ttl=1h token_max_ttl=4h
 
 ```
+
+Read the ***jenkins*** role you created to verify.
+
+```
+vault read auth/approle/role/jenkins
+```
+
+### Step 3. Get Role ID
+
+https://developer.hashicorp.com/vault/tutorials/auth-methods/approle
