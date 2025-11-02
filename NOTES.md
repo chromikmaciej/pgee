@@ -36,3 +36,6 @@ systemctl cat postgresql-17.service
 ```
 
 # Creating a new, empty, encrypted database
+
+> [!NOTE]
+> When we create a new DATA directory, we generate a new TDE key, which is stored in an encrypted JSON file. The encrypted key is protected using a key stored in Vault. When we rotate passwords, we rotate the key in Vault, not the TDE key.
