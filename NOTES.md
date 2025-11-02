@@ -1,16 +1,16 @@
-# Dump roles
+### Dump roles
 
 ```
 pg_dumpall --roles-only > roles.sql
 ```
 
-# Restore
+### Restore
 
 ```
 psql -f roles.sql postgres
 ```
 
-# Copy folders in a disabled database
+### Copy folders in a disabled database
 
 ```
 cp -rap data data_file_bck
@@ -24,14 +24,15 @@ cp -rap data data_file_bck
 > [!NOTE]
 > -a makes -r and -p unnecessary, but using them together is harmless
 
-# Lists all systemd unit files and shows only the lines that contain "postgresql" 
+### Lists all systemd unit files and shows only the lines that contain "postgresql" 
 
 ```
 systemctl list-unit-files | grep postgres
 ```
-# Prints the full systemd unit file for postgresql-17.service
+### Prints the full systemd unit file for postgresql-17.service
 
 ```
 systemctl cat postgresql-17.service
 ```
 
+# Creating a new, empty, encrypted database
