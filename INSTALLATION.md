@@ -68,7 +68,7 @@ EOF
 ##Step 4: Install PGEE from the repository
 
 ```
-dnf install -y postgresql17-ee-server
+dnf install -y postgresql17-ee-server postgresql17-ee postgresql17-ee-contrib
 ```
 
 ## Step 5 Create sample keys
