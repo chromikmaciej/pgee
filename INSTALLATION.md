@@ -65,13 +65,13 @@ EOF
 ```
 
 
-##Step 4: Install PGEE from the repository
+## Step 4: Install PGEE from the repository
 
 ```
 dnf install -y postgresql17-ee-server postgresql17-ee postgresql17-ee-contrib
 ```
 
-###Install pgee_key_manager from the repository
+### Install pgee_key_manager from the repository
 
 ```
 dnf install -y pgee_key_manager
