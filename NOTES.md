@@ -16,6 +16,10 @@ psql -f roles.sql postgres
 cp -rap data data_file_bck
 ```
 
-> cp - copy files/directories
-> -r - recursive (copy directories and their contents)
->
+- copy - copy files/directories
+- -r - recursive (copy directories and their contents)
+- -a - archive: preserves mode, ownership, timestamps, symlinks, and copies recursively (equivalent to -dR --preserve=all inGNU cp).
+- -p - preserve mode, ownership, timestamps (redundant because -a already preserves these).
+
+> [!NOTE]
+> -a makes -r and -p unnecessary, but using them together is harmless
