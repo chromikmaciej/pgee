@@ -71,6 +71,12 @@ EOF
 dnf install -y postgresql17-ee-server postgresql17-ee postgresql17-ee-contrib
 ```
 
+### Install pgee_key_manager from the repository
+
+```
+dnf install -y pgee_key_manager
+```
+
 ## Step 5 Create sample keys
 
 Switch to user ***postgres***
