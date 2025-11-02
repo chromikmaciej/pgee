@@ -29,3 +29,9 @@ cp -rap data data_file_bck
 ```
 systemctl list-unit-files | grep postgres
 ```
+# Prints the full systemd unit file for postgresql-17.service
+
+```
+systemctl cat postgresql-17.service
+```
+
