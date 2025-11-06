@@ -75,7 +75,34 @@ VAULT_TOKEN=<vault token>
 ```
 set -a
 source /etc/pgee/pgee_service.env
-
 pgee_key_manager -vault -vault-mount tde-cybertec -vault-path /zwsbii/nonprod/<hostname>/data
+```
+
+### Length of the key
+
+When generating a TDE key, we must select a key lenght - e.g., 128, 192, ora 256 bits.
+
+For a 256-bit key, the proper command is shown below. 
+
+```set -a
+source /etc/pgee/pgee_service.env
+/usr/pgsql-15/bin/initdb -K 'pgee_key_manager -key-bits 256 -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/<hostname>/data' --key-bits 256
+```
+
+For a standard key length of 128 bits, the correct command is shown below (you don't need to specify the key length because 128 bits is the default).
 
 ```
+/usr/pgsql-15/bin/initdb -K 'pgee_key_manager -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/<hostname>/data'
+```
+
+### Verify the configuration file to ensure TDE is configured properly. 
+
+In configuration file (postgresql.conf)
+
+```
+cat /var/lib/pgsql/15/data/postgresql.conf | grep -E 'encryption_key|bits'
+```
+
+You should see like this:
+
+>encryption_key_command = 'pgee_key_manager -key-bits 256 -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/l000t90mxl002/data'
