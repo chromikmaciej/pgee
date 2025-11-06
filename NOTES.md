@@ -126,11 +126,18 @@ systemctl edit postgresql-15.service
 You should see output like this:
 
 >[Service]
+
 >EnvironmentFile=/etc/pgee/pgee_service.env
 
 >ExecStart=
 
 >ExecStart=/usr/pgsql-15/bin/postgres -D ${PGDATA}
 
+
+Reload the systemd manager configuration 
+
+```
+systemctl daemon-reload
+```
 
 
