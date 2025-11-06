@@ -97,12 +97,22 @@ For a standard key length of 128 bits, the correct command is shown below (you d
 
 ### Verify the configuration file to ensure TDE is configured properly. 
 
-In configuration file (postgresql.conf)
+In the configuration file (postgresql.conf)
 
 ```
 cat /var/lib/pgsql/15/data/postgresql.conf | grep -E 'encryption_key|bits'
 ```
 
-You should see like this:
+You should see output like this:
 
 >encryption_key_command = 'pgee_key_manager -key-bits 256 -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/hostname/data'
+
+Also display ***tdekey.json*** to verify the configuration.
+
+```
+cat /var/lib/pgsql/15/data/tdekey.json
+```
+
+It should look like this:
+
+>{"method":"vault","encrypted_key":"1W73lJ6UYSm31owVNdyB0hbFz8X6fNyn+4HaxqwhIasdfasdfasqwASDFasreCYhSOHXkqb7TDZsd1HY1qPCxdjSCN/1pTHhjV2sycWQMIU=","version":3}
