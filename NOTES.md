@@ -69,3 +69,13 @@ Add the required values to this file:
 VAULT_ADDR=https://<vault address>:8200
 VAULT_TOKEN=<vault token>
 ```
+
+### Test connectivity to HashiCorp Vault and the VAULT_TOKEN settings
+
+```
+set -a
+source /etc/pgee/pgee_service.env
+
+pgee_key_manager -vault -vault-mount tde-cybertec -vault-path /zwsbii/nonprod/<hostname>/data
+
+```
