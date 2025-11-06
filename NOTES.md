@@ -116,3 +116,18 @@ cat /var/lib/pgsql/15/data/tdekey.json
 It should look like this:
 
 >{"method":"vault","encrypted_key":"1W73lJ6UYSm31owVNdyB0hbFz8X6fNyn+4HaxqwhIasdfasdfasqwASDFasreCYhSOHXkqb7TDZsd1HY1qPCxdjSCN/1pTHhjV2sycWQMIU=","version":3}
+
+### Check the variables in the systemd configuration file
+
+```
+systemctl edit postgresql-15.service
+```
+
+You should see output like this:
+
+>[Service]
+>EnvironmentFile=/etc/pgee/pgee_service.env
+>ExecStart=
+>ExecStart=/usr/pgsql-15/bin/postgres -D ${PGDATA}
+
+
