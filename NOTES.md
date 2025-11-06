@@ -39,3 +39,18 @@ systemctl cat postgresql-17.service
 
 > [!NOTE]
 > When we create a new DATA directory, we generate a new TDE key, which is stored in an encrypted JSON file. The encrypted key is protected using a key stored in Vault. When we rotate passwords, we rotate the key in Vault, not the TDE key.
+
+
+# Creating a directory with configuration for PGEE
+
+Create a direcotry
+
+```
+mkdir -p /etc/pgee
+```
+
+Set proper directory permissions
+
+```
+chown postgres: /etc/pgee
+```
