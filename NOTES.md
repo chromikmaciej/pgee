@@ -105,4 +105,4 @@ cat /var/lib/pgsql/15/data/postgresql.conf | grep -E 'encryption_key|bits'
 
 You should see like this:
 
->encryption_key_command = 'pgee_key_manager -key-bits 256 -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/l000t90mxl002/data'
+>encryption_key_command = 'pgee_key_manager -key-bits 256 -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/<hostname>/data'
