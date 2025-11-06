@@ -140,4 +140,80 @@ Reload the systemd manager configuration
 systemctl daemon-reload
 ```
 
+### Verify the process database owner
 
+Check the owner of the process database. If the owner is not 
+***postgres***, change it to the ***postgres*** user. This can be set in
+***ExecStart***. 
+
+
+Check the following in context:
+    1. Whether the user is ***postgres***
+    2. Whether we are in pg_data
+    3. That the binary is ***postgres***, not ***postmaster***. 
+
+To do this run command below:
+
+```
+systemctl show postgresql-15.service| grep Env
+```
+
+You should see output like this:
+
+>Environment=PGDATA=/var/lib/pgsql/15/data/ PG_OOM_ADJUST_FILE=/proc/self/oom_score_adj PG_OOM_ADJUST_VALUE=0
+
+>EnvironmentFiles=/etc/pgee/pgee_service.env (ignore_errors=no)
+
+
+### Disabled the previous database instance. 
+
+```
+systemctl stop postgresql.service
+```
+
+```
+systemctl disable postgresql.service
+```
+
+### Verify the Vault configuration
+
+If Vault is installed, verify the Vault configuration.
+
+```
+<pre>vault kv get -mount tde-cybertec zwsbii/nonprod/hostname/data</pre>
+```
+
+### Enable and start the new database instance
+
+```
+systemctl start postgresql-15.service
+```
+
+```
+systemctl enable postgresql-15.service
+```
+
+### Key rotation
+
+```
+cd $PGDATA
+```
+
+```
+set -a
+source /etc/pgee/pgee_service.env
+pgee_key_manager -vault -vault-mount tde-cybertec -vault-path zwsbii/nonprod/hostname/data -rotate
+```
+
+The key version is stored in the ***tdekey.json*** file.
+
+
+### Transparent Data Encryption verification
+
+```
+postgres=# show data_encryption;
+data_encryption
+-----------------
+on
+(1 row)
+```
