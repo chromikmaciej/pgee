@@ -4,6 +4,20 @@
 pg_dumpall --roles-only > roles.sql
 ```
 
+### Dump database
+
+Binary dump:
+
+```
+pg_dump -Fc -d databasename -f databasename.dump
+```
+
+SQL dump:
+
+```
+pg_dump -Fp -d databasename -f databasename.sql
+```
+
 ### Restore
 
 ```
@@ -216,4 +230,20 @@ data_encryption
 -----------------
 on
 (1 row)
+```
+
+### Import the data
+
+```
+psql -f roles.sql
+```
+
+```
+create database databasename
+```
+
+Restore
+
+```
+/usr/pgsql-15/bin/pg_restore -d databasename file_widh_dump_database.dump
 ```
