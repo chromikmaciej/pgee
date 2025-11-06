@@ -35,13 +35,13 @@ systemctl list-unit-files | grep postgres
 systemctl cat postgresql-17.service
 ```
 
-# Creating a new, empty, encrypted database
+### Creating a new, empty, encrypted database
 
 > [!NOTE]
 > When we create a new DATA directory, we generate a new TDE key, which is stored in an encrypted JSON file. The encrypted key is protected using a key stored in Vault. When we rotate passwords, we rotate the key in Vault, not the TDE key.
 
 
-# Creating a directory with configuration for PGEE
+### Creating a directory with configuration for PGEE
 
 Create a direcotry
 
@@ -53,4 +53,19 @@ Set proper directory permissions
 
 ```
 chown postgres: /etc/pgee
+```
+
+### Create a file containing environment variables 
+
+Create a file
+
+```
+touch /etc/pgee/pgee_service.env
+```
+
+Add the required values to this file:
+
+```
+VAULT_ADDR=https://<vault address>:8200
+VAULT_TOKEN=<vault token>
 ```
