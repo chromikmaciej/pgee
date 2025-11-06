@@ -24,6 +24,18 @@ pg_dump -Fp -d databasename -f databasename.sql
 psql -f roles.sql postgres
 ```
 
+Binary restore
+
+```
+/usr/pgsql-14/bin/psql -d databasename -f databasename.sql
+```
+
+SQL restore
+
+```
+/usr/pgsql-15/bin/pg_restore -d databasename -f databasename.sql
+```
+
 ### Copy folders in a disabled database
 
 ```
